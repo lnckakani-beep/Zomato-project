@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zomato App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🍔 Zomato DevOps Project</h1>
+<p>NGINX Frontend</p>
+
+<button onclick="callBackend()">Call Backend</button>
+
+<p id="response"></p>
+
+<script>
+function callBackend() {
+    fetch('/api')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("response").innerText =
+                JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+            document.getElementById("response").innerText = "Backend error";
+        });
+}
+</script>
+
+</body>
+</html>
